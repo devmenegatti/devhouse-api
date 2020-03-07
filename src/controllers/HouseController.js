@@ -17,6 +17,14 @@ class HouseController{
 
         return res.json(house);
     }
+
+    async index(req, res) {
+        const { status } = req.query;
+
+        const houses = await House.find({ status });
+
+        return res.json(houses);
+    }
 }
 
 export default new HouseController();
